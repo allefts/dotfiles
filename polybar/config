@@ -1,0 +1,74 @@
+include-file = $HOME/.config/polybar/modules/bspwm.ini
+include-file = $HOME/.config/polybar/modules/datetime.ini
+include-file = $HOME/.config/polybar/modules/rounds.ini
+include-file = $HOME/.config/polybar/modules/battery.ini
+include-file = $HOME/.config/polybar/modules/temp.ini
+include-file = $HOME/.config/polybar/modules/brightness.ini
+
+[colors]
+background = #0016161E
+background-alt = #444
+;foreground = ${xrdb:color7:#222}
+foreground = #dfdfdf
+foreground-alt = #89DDFF
+
+foreground-bspwm = #555
+primary = #ffb52a
+;primary = #69d486
+secondary = #e60053
+alert = #bd2c40
+
+[bar/main]
+bottom = false
+height = 32
+offset-y = 5
+fixed-center = true
+; radius = 15
+border = 0
+
+module-margin-left = 2
+module-margin-right = 2
+
+wm-restack = bspwm
+override-redirect = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+padding-left = 0
+padding-right  = 0
+
+font-0 = Fira Code:size=10:style=Bold;3
+font-1 = Font Awesome 6 Brands Regular:pixelsize=14:style=Regular;4
+font-2 = Font Awesome 6 Free Solid:pixelsize=14:style=Solid;4
+font-3 = Font Awesome 6 Free Regular:pixelsize=14:style=Regular;4
+font-4 = Font Awesome v4 Compatibility Regular:pixelsize=14:style=Regular;4
+font-5 = Fira Code:size=12:style=Bold;3
+
+line-size = 2
+line-color = #f00
+
+[bar/left]
+inherit = bar/main
+width = 10.5%
+offset-x = 14
+fixed-center = true
+
+modules-center = bspwm
+
+[bar/center]
+background = #0001616E
+inherit = bar/main
+width = 9%
+offset-x = 869
+fixed-center = false
+
+modules-center  = date
+
+[bar/right]
+inherit = bar/main
+width = 15%
+offset-x = 1620
+fixed-center = true
+
+modules-center = xbacklight temp battery 
